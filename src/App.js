@@ -1,36 +1,9 @@
 import React, { useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
+import  ListWrapper  from "./ListWrapper";
+import { ComponentToChange } from "./ComponentToChange";
 
-function ListInnerWrapper({ list, onClick }) {
-  return (
-    <div>
-      {list.map(item => (
-        <button
-          onClick={() => {
-            onClick(item);
-          }}
-        >
-          {item}
-        </button>
-      ))}
-    </div>
-  );
-}
-function ListWrapper({ list, onClick }) {
-  return (
-    <div>
-      <ListInnerWrapper list={list} onClick={onClick} />
-    </div>
-  );
-}
-function ComponentToChange({ color }) {
-  return <InnerComponentToChange color={color}></InnerComponentToChange>;
-}
-
-function InnerComponentToChange({ color }) {
-  return <div style={{ color }}>Text with changing color</div>;
-}
 function App() {
   const [list, setList] = useState(["red", "green", "blue"]);
   const [color, setColor] = useState("red");
